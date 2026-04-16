@@ -1,0 +1,20 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sveriges Radio P3 - music/podcast theme -->
+  <defs>
+    <linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7b1fa2;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#512da8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#311b92;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g5)"/>
+  <!-- Sound waves -->
+  <path d="M 400 400 Q 420 350 440 400 T 480 400" stroke="#ff6b9d" stroke-width="4" fill="none" opacity="0.8"/>
+  <path d="M 520 400 Q 540 320 560 400 T 600 400" stroke="#ff6b9d" stroke-width="4" fill="none" opacity="0.9"/>
+  <path d="M 640 400 Q 660 330 680 400 T 720 400" stroke="#ff6b9d" stroke-width="4" fill="none" opacity="0.8"/>
+  <path d="M 760 400 Q 780 360 800 400 T 840 400" stroke="#ff6b9d" stroke-width="4" fill="none" opacity="0.7"/>
+  <!-- Microphone -->
+  <circle cx="600" cy="250" r="30" fill="#ffd700" opacity="0.9"/>
+  <rect x="590" y="280" width="20" height="60" fill="#c0c0c0" opacity="0.8"/>
+  <text x="600" y="730" font-size="50" font-weight="bold" text-anchor="middle" fill="white" opacity="0.95">P3 Podd</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Vinterviken - atmospheric winter/drama theme -->
+  <defs>
+    <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a237e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#01579b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0277bd;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g3)"/>
+  <!-- Winter trees/pine forest -->
+  <polygon points="200,600 150,350 250,600" fill="#2d5016" opacity="0.9"/>
+  <polygon points="500,600 420,300 580,600" fill="#1b3d0e" opacity="0.9"/>
+  <polygon points="900,600 800,280 1000,600" fill="#2d5016" opacity="0.8"/>
+  <!-- Snow effect -->
+  <circle cx="300" cy="200" r="20" fill="white" opacity="0.7"/>
+  <circle cx="700" cy="150" r="25" fill="white" opacity="0.6"/>
+  <circle cx="1000" cy="300" r="15" fill="white" opacity="0.7"/>
+  <text x="600" y="730" font-size="48" font-weight="bold" text-anchor="middle" fill="white" opacity="0.95">Vinterviken</text>
+</svg>
