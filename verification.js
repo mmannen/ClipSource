@@ -92,7 +92,7 @@ const verifyCode = () => {
     return;
   }
 
-  window.location.href = 'screeningroom.html';
+  window.location.href = 'medicenter.html';
 };
 
 // Resend button
