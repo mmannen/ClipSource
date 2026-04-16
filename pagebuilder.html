@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pagebuilder.css" />
+</head>
+<body>
+  <div class="pb-container">
+    
+    <!-- Header -->
+    <header class="pb-header">
+      <div class="pb-header-left">
+        <button class="pb-back-btn" onclick="window.history.back() || window.location.href='medicenter.html'">
+          <svg width="8" height="12" viewBox="0 0 8 12" fill="none">
+            <path d="M7 1L1 6L7 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <input type="text" class="pb-page-title" value="Untitled Page" />
+      </div>
+      <div class="pb-header-right">
+        <button class="pb-preview-btn">Preview</button>
+        <button class="pb-publish-btn">Publish</button>
+      </div>
+    </header>
+
+    <!-- Step tabs -->
+    <div class="pb-steps">
+      <button class="pb-step active">1. Page</button>
+      <button class="pb-step">2. Settings</button>
+      <button class="pb-step">3. Publish</button>
+    </div>
+
+    <div class="pb-workspace">
+      <!-- Canvas Area -->
+      <main class="pb-canvas-wrapper">
+        <div class="pb-canvas" id="pbCanvas">
+          <div class="pb-empty-state">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <rect x="6" y="6" width="36" height="36" rx="2" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+              <line x1="6" y1="18" x2="42" y2="18" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+              <line x1="6" y1="30" x2="42" y2="30" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+            </svg>
+            <p>Start building your page</p>
+            <button class="pb-add-component-trigger">+ Add component</button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Add Component Button (floating) -->
+      <button class="pb-add-component-btn" id="pbAddComponentBtn">+ Add component</button>
+    </div>
+
+    <!-- Add Component Modal -->
+    <div class="pb-modal" id="pbComponentModal">
+      <div class="pb-modal-backdrop"></div>
+      <div class="pb-modal-content">
+        <div class="pb-modal-header">
+          <h2>Add component</h2>
+          <button class="pb-modal-close">&times;</button>
+        </div>
+        
+        <div class="pb-modal-body">
+          <!-- Basic Components -->
+          <div class="pb-component-section">
+            <h3 class="pb-section-title">Basic</h3>
+            <div class="pb-component-grid">
+              <button class="pb-component-item" data-component="heading">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <text x="2" y="17" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="currentColor">H</text>
+                </svg>
+                <span>Heading</span>
+              </button>
+              <button class="pb-component-item" data-component="text">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <text x="2" y="17" font-family="Arial, sans-serif" font-size="14" fill="currentColor">T</text>
+                </svg>
+                <span>Text</span>
+              </button>
+              <button class="pb-component-item" data-component="divider">
+                <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2"/>
+                <span style="margin-top: 8px;">Divider</span>
+              </button>
+              <button class="pb-component-item" data-component="button">
+                <rect x="3" y="7" width="18" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <span style="margin-top: 8px;">Button</span>
+              </button>
+              <button class="pb-component-item" data-component="columns-2">
+                <rect x="2" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="1"/>
+                <rect x="14" y="4" width="8" height="16" rx="1" stroke="currentColor" stroke-width="1"/>
+                <span style="margin-top: 8px;">2-Col</span>
+              </button>
+              <button class="pb-component-item" data-component="columns-3">
+                <rect x="2" y="4" width="5" height="16" rx="1" stroke="currentColor" stroke-width="1"/>
+                <rect x="9" y="4" width="5" height="16" rx="1" stroke="currentColor" stroke-width="1"/>
+                <rect x="17" y="4" width="5" height="16" rx="1" stroke="currentColor" stroke-width="1"/>
+                <span style="margin-top: 8px;">3-Col</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Media Components -->
+          <div class="pb-component-section">
+            <h3 class="pb-section-title">Media</h3>
+            <div class="pb-component-grid">
+              <button class="pb-component-item" data-component="image">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                  <circle cx="7" cy="8" r="1.5" fill="currentColor"/>
+                  <path d="M2 18L8 12L14 18" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                  <path d="M14 18L22 10" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+                <span>Image</span>
+              </button>
+              <button class="pb-component-item" data-component="video">
+                <rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <polygon points="10,8 10,16 17,12" fill="currentColor"/>
+                <span style="margin-top: 8px;">Video</span>
+              </button>
+              <button class="pb-component-item" data-component="embed">
+                <rect x="2" y="4" width="20" height="16" rx="1" stroke="currentColor" stroke-width="1"/>
+                <path d="M7 12L10 9M14 15L17 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <span style="margin-top: 8px;">Embed</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Automatic Components -->
+          <div class="pb-component-section">
+            <h3 class="pb-section-title">Automatic</h3>
+            <div class="pb-component-grid">
+              <button class="pb-component-item" data-component="latest-posts">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="2" width="20" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                  <rect x="2" y="10" width="20" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+                <span>Latest posts</span>
+              </button>
+              <button class="pb-component-item" data-component="highlights">
+                <shape viewBox="0 0 24 24">
+                  <path d="M3 3H21V7H3V3Z" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M3 9H21V18H3V9Z" stroke="currentColor" stroke-width="1.5"/>
+                </shape>
+                <span>Highlights</span>
+              </button>
+              <button class="pb-component-item" data-component="filters">
+                <rect x="2" y="4" width="20" height="4" rx="1" stroke="currentColor" stroke-width="1"/>
+                <line x1="6" y1="11" x2="18" y2="11" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="6" y1="15" x2="18" y2="15" stroke="currentColor" stroke-width="1.5"/>
+                <span style="margin-top: 8px;">Filters</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="pagebuilder.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email Verification (Static)</title>
+  <link rel="stylesheet" href="verification.css" />
+  <link rel="stylesheet" href="help-overlay.css" />
+</head>
+<body>
+  <button id="backBtn" class="back-btn" aria-label="Back to login">
+    <svg class="back-arrow" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+    <span class="back-text">Back</span>
+  </button>
+  <div class="app-shell">
+    <header class="top-header">
+      <div class="logo-wrap">
+        <img src="assets/clipsource-logo.png" alt="ClipSource" class="logo-img" />
+      </div>
+    </header>
+
+    <main class="main-content">
+      <h1 class="page-title">Enter verification code</h1>
+      <p class="verification-subtitle">
+        Sent to <span class="email-highlight">user@example.com</span>
+      </p>
+      
+      <form id="verificationForm" class="verification-form" novalidate>
+        <div class="otp-grid">
+          <input 
+            type="text" 
+            maxlength="1" 
+            inputmode="numeric" 
+            pattern="[0-9]*" 
+            class="otp-input" 
+            aria-label="Digit 1"
+            tabindex="0"
+          />
+          <input 
+            type="text" 
+            maxlength="1" 
+            inputmode="numeric" 
+            pattern="[0-9]*" 
+            class="otp-input" 
+            aria-label="Digit 2"
+            tabindex="-1"
+          />
+          <input 
+            type="text" 
+            maxlength="1" 
+            inputmode="numeric" 
+            pattern="[0-9]*" 
+            class="otp-input" 
+            aria-label="Digit 3"
+            tabindex="-1"
+          />
+          <input 
+            type="text" 
+            maxlength="1" 
+            inputmode="numeric" 
+            pattern="[0-9]*" 
+            class="otp-input" 
+            aria-label="Digit 4"
+            tabindex="-1"
+          />
+        </div>
+      </form>
+      <p class="resend-text">Didn't receive a code? <button id="resendBtn" type="button" class="resend-link">Resend</button></p>
+    </main>
+
+    <button id="helpBtn" class="help-btn">
+      <svg class="help-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M9.6 9.3a2.7 2.7 0 1 1 4.8 1.7c-.9 1-1.9 1.5-1.9 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="12" cy="17.2" r="1.2" fill="currentColor"/>
+      </svg>
+      <span>Help</span>
+    </button>
+
+    <footer class="page-footer">
+      <div class="gradient-bar"></div>
+      <div class="footer-content">
+        <div class="footer-links">
+          <div>
+            <p>The Company</p>
+            <a href="#">About Clipsource</a>
+            <a href="#">News</a>
+            <a href="#">Contact</a>
+          </div>
+          <div>
+            <p>The Services</p>
+            <a href="#">TV &amp; VOD</a>
+            <a href="#">Publishing</a>
+          </div>
+          <div>
+            <p>Help and Support</p>
+            <a href="#">Help Center</a>
+            <a href="#">Contact support</a>
+            <a href="#">Server status</a>
+          </div>
+        </div>
+        <div class="footer-icons">
+          <div class="icon-btn" aria-label="X">
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+              <path d="M13 13L30.5 36H38L21 13H13Z" fill="currentColor"/>
+              <path d="M31.5 33.5L17.5 15.5H20L33.5 33.5H31.5Z" fill="#c8c8c8"/>
+              <path d="M28.5 22.5L36.5 13H32.5L26.5 20L28.5 22.5ZM13.5 36L22 26L24 28.5L17.5 36H13.5Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="icon-btn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M6.94 8.5H4V20h2.94zM5.47 7.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4zM20 20h-2.93v-5.6c0-1.34-.03-3.06-1.86-3.06-1.86 0-2.15 1.45-2.15 2.96V20H10.1V8.5h2.81v1.57h.04c.39-.74 1.35-1.52 2.79-1.52 2.98 0 3.53 1.96 3.53 4.51V20z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+  <script src="accessibility.js"></script>
+  <script src="help-overlay.js"></script>
+  <script src="verification.js"></script>
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Post</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="screeningroom.css" />
+  <link rel="stylesheet" href="createpost.css" />
+  <link rel="stylesheet" href="search.css" />
+  <link rel="stylesheet" href="help-overlay.css" />
+</head>
+<body>
+  <div class="dashboard-wrapper">
+
+    <!-- ── Top Nav ─────────────────────────────────────── -->
+    <header class="top-nav">
+      <div class="nav-logo">
+        <img src="assets/clipsource-logo.png" alt="ClipSource" class="nav-logo-img" />
+      </div>
+      <nav class="nav-links">
+        <span onclick="goToContacts()">CONTACTS</span>
+        <span>TAGS</span>
+        <span style="margin-left: auto;">SEARCH</span>
+        <span onclick="goToSettings()">SETTINGS</span>
+        <span onclick="logout()">LOG OUT</span>
+      </nav>
+    </header>
+
+    <div class="main-container">
+
+      <!-- ── Sidebar ──────────────────────────────────── -->
+      <aside class="sidebar">
+
+        <!-- ── Media Center accordion ── -->
+        <div class="accordion-section is-open" id="acc-media-center">
+          <div class="acc-header" data-target="media-center">
+            <span class="acc-title">
+              Media Center
+              <a href="https://clipsource.com/?gad_source=1&gad_campaignid=19393620648&gbraid=0AAAAADBw0u-tdat1LCQ9C3eCldKlBd64u&gclid=EAIaIQobChMIgPXr3YjekwMVrkKRBR07qACNEAAYASAAEgKkHfD_BwE" target="_blank" rel="noopener noreferrer" class="pressroom-link" title="Pressroom" style="margin-left: 4px; padding: 2px 4px; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; color: #666;">
+                <svg class="nav-icon" viewBox="0 0 640 640" fill="none" style="width: 18px; height: 18px; display: block;"><path d="M368 64C359.2 64 352 71.2 352 80C352 88.8 359.2 96 368 96L521.4 96L260.7 356.7C254.5 362.9 254.5 373.1 260.7 379.3C266.9 385.5 277.1 385.5 283.3 379.3L544 118.6L544 272C544 280.8 551.2 288 560 288C568.8 288 576 280.8 576 272L576 80C576 71.2 568.8 64 560 64L368 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 400C480 391.2 472.8 384 464 384C455.2 384 448 391.2 448 400L448 496C448 522.5 426.5 544 400 544L144 544C117.5 544 96 522.5 96 496L96 240C96 213.5 117.5 192 144 192L240 192C248.8 192 256 184.8 256 176C256 167.2 248.8 160 240 160L144 160z" fill="currentColor"/></svg>
+              </a>
+            </span>
+            <svg class="acc-chevron" style="margin-left: auto;" width="7" height="12" viewBox="0 0 8.89 13.39" fill="none">
+              <path d="M0.357301 13.071C-0.118783 12.6716 -0.119157 11.9393 0.356519 11.5394L6.11962 6.69471L0.356558 1.84998C-0.119109 1.45011 -0.11874 0.717811 0.357328 0.318419L0.458081 0.233894C0.829807 -0.0779599 1.37176 -0.0779654 1.7435 0.233881L8.53177 5.92859C9.00817 6.32825 9.00817 7.06117 8.53177 7.46083L1.74348 13.1555C1.37176 13.4674 0.82981 13.4674 0.458084 13.1555L0.357301 13.071Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="acc-items">
+
+            <div class="nav-item active" data-section="media-center">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="none"><path d="M7 4C6.44687 4 6 4.44687 6 5V15C6 15.3656 5.90312 15.7063 5.73125 16H15.5C16.3281 16 17 15.3281 17 14.5V5C17 4.44687 16.5531 4 16 4H7ZM4 16C4.55313 16 5 15.5531 5 15V5C5 3.89688 5.89688 3 7 3H16C17.1031 3 18 3.89688 18 5V14.5C18 15.8813 16.8813 17 15.5 17H4C2.89688 17 2 16.1031 2 15V5.5C2 5.225 2.225 5 2.5 5C2.775 5 3 5.225 3 5.5V15C3 15.5531 3.44687 16 4 16ZM13 7.5C13 7.225 13.225 7 13.5 7H15C15.275 7 15.5 7.225 15.5 7.5C15.5 7.775 15.275 8 15 8H13.5C13.225 8 13 7.775 13 7.5ZM13 9.5C13 9.225 13.225 9 13.5 9H15C15.275 9 15.5 9.225 15.5 9.5C15.5 9.775 15.275 10 15 10H13.5C13.225 10 13 9.775 13 9.5ZM7.5 11.5C7.5 11.225 7.725 11 8 11H15C15.275 11 15.5 11.225 15.5 11.5C15.5 11.775 15.275 12 15 12H8C7.725 12 7.5 11.775 7.5 11.5ZM7.5 13.5C7.5 13.225 7.725 13 8 13H15C15.275 13 15.5 13.225 15.5 13.5C15.5 13.775 15.275 14 15 14H8C7.725 14 7.5 13.775 7.5 13.5ZM9 9H11V7H9V9ZM8 6.75C8 6.33437 8.33437 6 8.75 6H11.25C11.6656 6 12 6.33437 12 6.75V9.25C12 9.66563 11.6656 10 11.25 10H8.75C8.33437 10 8 9.66563 8 9.25V6.75Z" fill="currentColor"/></svg>
+              <span>Posts</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+
+
+            <div class="nav-item" data-section="media-center">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="none"><path d="M10 3H6C5.44687 3 5 3.44687 5 4V16C5 16.5531 5.44687 17 6 17H14C14.5531 17 15 16.5531 15 16V8H12C10.8969 8 10 7.10312 10 6V3ZM14.5844 7L11 3.41563V6C11 6.55313 11.4469 7 12 7H14.5844ZM4 4C4 2.89688 4.89688 2 6 2H10.1719C10.7031 2 11.2125 2.20937 11.5875 2.58437L15.4156 6.41563C15.7906 6.79063 16 7.3 16 7.83125V16C16 17.1031 15.1031 18 14 18H6C4.89688 18 4 17.1031 4 16V4Z" fill="currentColor"/></svg>
+              <span>Pages</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+            <div class="nav-item" data-section="media-center">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="none"><path d="M3.01562 9.53438C3.125 7.9 3.80313 6.3 5.05 5.05C6.41563 3.68438 8.20625 3 10 3C11.9375 3 13.7875 3.79688 15.1187 5.20625L16.3406 6.5H13C12.725 6.5 12.5 6.725 12.5 7C12.5 7.275 12.725 7.5 13 7.5H17.5C17.775 7.5 18 7.275 18 7V2.5C18 2.225 17.775 2 17.5 2C17.225 2 17 2.225 17 2.5V5.74375L15.8438 4.52187C14.325 2.9125 12.2125 2 10 2C7.95312 2 5.90625 2.78125 4.34375 4.34375C2.91562 5.76875 2.14062 7.6 2.01875 9.46562C2 9.74375 2.20937 9.98125 2.48438 10C2.75938 10.0188 2.99687 9.80938 3.01562 9.53438ZM16.9844 10.4688C16.875 12.1031 16.1969 13.7031 14.95 14.95C13.5844 16.3156 11.7938 17 10 17C8.0625 17 6.2125 16.2031 4.88125 14.7937L3.65937 13.5H7C7.275 13.5 7.5 13.275 7.5 13C7.5 12.725 7.275 12.5 7 12.5H2.5C2.225 12.5 2 12.725 2 13V17.5C2 17.775 2.225 18 2.5 18C2.775 18 3 17.775 3 17.5V14.2563L4.15625 15.4781C5.675 17.0875 7.79063 17.9969 10 17.9969C12.0469 17.9969 14.0938 17.2156 15.6562 15.6531C17.0812 14.2281 17.8563 12.3937 17.9813 10.5281C18 10.2531 17.7906 10.0156 17.5156 9.99687C17.2406 9.97812 17.0031 10.1875 16.9844 10.4625V10.4688Z" fill="currentColor"/></svg>
+              <span>Schedule changes</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+            <div class="nav-item" data-section="media-center">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="none"><path d="M6.5 2C6.775 2 7 2.225 7 2.5V4H13V2.5C13 2.225 13.225 2 13.5 2C13.775 2 14 2.225 14 2.5V4H15C16.1031 4 17 4.89688 17 6V15C17 16.1031 16.1031 17 15 17H5C3.89688 17 3 16.1031 3 15V6C3 4.89688 3.89688 4 5 4H6V2.5C6 2.225 6.225 2 6.5 2ZM15 5H5C4.44687 5 4 5.44687 4 6V7H16V6C16 5.44687 15.5531 5 15 5ZM16 8H4V15C4 15.5531 4.44687 16 5 16H15C15.5531 16 16 15.5531 16 15V8Z" fill="currentColor"/></svg>
+              <span>Events</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+            <div class="nav-item" data-section="media-center">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="none"><path d="M7.80937 5.50938C7.60625 5.60938 7.40937 5.72187 7.22187 5.85C6.96562 6.02187 6.64375 6.06562 6.34687 5.96875L4.10625 5.225L2.92188 7.275L4.6875 8.84688C4.91875 9.05313 5.04062 9.35313 5.02187 9.6625C5.00625 9.8875 5.00625 10.1188 5.02187 10.3438C5.04375 10.6531 4.91875 10.9531 4.6875 11.1594L2.92188 12.7281L4.10625 14.7812L6.34687 14.0375C6.64062 13.9406 6.9625 13.9844 7.22187 14.1562C7.40937 14.2812 7.60625 14.3969 7.80937 14.4969C8.0875 14.6344 8.28437 14.8906 8.34687 15.1938L8.82187 17.5063H11.1906L11.6656 15.1938C11.7281 14.8906 11.9281 14.6344 12.2031 14.4969C12.4062 14.3969 12.6031 14.2844 12.7906 14.1562C13.0469 13.9844 13.3687 13.9406 13.6656 14.0375L15.9062 14.7812L17.0906 12.7281L15.325 11.1594C15.0937 10.9531 14.9719 10.6531 14.9906 10.3438C14.9969 10.2313 15.0031 10.1188 15.0031 10.0031C15.0031 9.8875 15 9.775 14.9906 9.6625C14.9688 9.35313 15.0937 9.05313 15.325 8.84688L17.0906 7.27812L15.9062 5.225L13.6656 5.96875C13.3719 6.06562 13.05 6.02187 12.7906 5.85C12.6031 5.725 12.4062 5.60938 12.2031 5.50938C11.925 5.37188 11.7281 5.11562 11.6656 4.8125L11.1906 2.5H8.82187L8.34687 4.8125C8.28437 5.11562 8.08437 5.37188 7.80937 5.50938ZM11.1938 1.5C11.6688 1.5 12.0781 1.83437 12.1719 2.29688L12.6469 4.60938C12.8906 4.72812 13.1281 4.86563 13.3531 5.01875L15.5937 4.275C16.0437 4.125 16.5375 4.3125 16.775 4.725L17.9594 6.77812C18.1969 7.19062 18.1125 7.70937 17.7563 8.025L15.9969 9.59375C16.0156 9.8625 16.0156 10.1406 15.9969 10.4062L17.7625 11.975C18.1188 12.2906 18.2 12.8125 17.9656 13.2219L16.7812 15.275C16.5437 15.6875 16.05 15.875 15.6 15.725L13.3594 14.9812C13.1344 15.1312 12.9 15.2687 12.6531 15.3906L12.1781 17.7031C12.0813 18.1687 11.6719 18.5 11.2 18.5H8.83125C8.35625 18.5 7.94687 18.1656 7.85312 17.7031L7.37812 15.3906C7.13437 15.2719 6.89687 15.1344 6.67187 14.9812L4.42188 15.725C3.97188 15.875 3.47812 15.6875 3.24062 15.275L2.05625 13.225C1.81875 12.8156 1.90313 12.2937 2.25938 11.9781L4.02187 10.4062C4.00312 10.1375 4.00312 9.85938 4.02187 9.59375L2.25625 8.025C1.9 7.70937 1.81875 7.1875 2.05312 6.77812L3.24062 4.725C3.47812 4.3125 3.97188 4.125 4.42188 4.275L6.6625 5.01875C6.8875 4.86875 7.12187 4.73125 7.36875 4.60938L7.84375 2.29688C7.94062 1.83437 8.35 1.5 8.825 1.5H11.1938ZM8.25937 10C8.25937 10.9625 9.0375 11.7406 10 11.7406C10.9625 11.7406 11.7406 10.9625 11.7406 10C11.7406 9.0375 10.9625 8.25937 10 8.25937C9.0375 8.25937 8.25937 9.0375 8.25937 10ZM9.99063 12.75C8.47188 12.7437 7.24375 11.5094 7.25 9.99063C7.25625 8.47188 8.49062 7.24375 10.0094 7.25C11.5281 7.25625 12.7562 8.49062 12.75 10.0094C12.7437 11.5281 11.5094 12.7563 9.99063 12.75Z" fill="currentColor"/></svg>
+              <span>Settings</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+            <div class="nav-item" data-section="media-center">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="none"><path d="M2 5.82812V5.75H2.00312C2.04062 4.77812 2.84375 4 3.82812 4H16.1719C17.1562 4 17.9563 4.77812 17.9969 5.75H18V14C18 15.1031 17.1031 16 16 16H4C2.89688 16 2 15.1031 2 14V5.82812ZM17 7.4875L11.4781 11.5344C10.5969 12.1781 9.4 12.1781 8.52188 11.5344L3 7.4875V14C3 14.5531 3.44687 15 4 15H16C16.5531 15 17 14.5531 17 14V7.4875ZM17 5.82812C17 5.37187 16.6281 5 16.1719 5H3.82812C3.37187 5 3 5.37187 3 5.82812C3 6.09062 3.125 6.34062 3.3375 6.49687L9.1125 10.7281C9.64063 11.1156 10.3594 11.1156 10.8875 10.7281L16.6625 6.49375C16.875 6.3375 17 6.09062 17 5.825V5.82812Z" fill="currentColor"/></svg>
+              <span>Notifications</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+            <div class="nav-item" data-section="media-center">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="none"><path d="M3 4.5C3 4.225 3.225 4 3.5 4H16.5C16.775 4 17 4.225 17 4.5C17 4.775 16.775 5 16.5 5H3.5C3.225 5 3 4.775 3 4.5ZM3 10C3 9.725 3.225 9.5 3.5 9.5H16.5C16.775 9.5 17 9.725 17 10C17 10.275 16.775 10.5 16.5 10.5H3.5C3.225 10.5 3 10.275 3 10ZM17 15.5C17 15.775 16.775 16 16.5 16H3.5C3.225 16 3 15.775 3 15.5C3 15.225 3.225 15 3.5 15H16.5C16.775 15 17 15.225 17 15.5Z" fill="currentColor"/></svg>
+              <span>Menus</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+
+
+          </div>
+        </div>
+
+        <!-- ── Screening Room accordion ── -->
+        <div class="accordion-section" id="acc-screening-room">
+          <div class="acc-header" data-target="screening-room">
+            <span class="acc-title">Screening Room</span>
+            <svg class="acc-chevron" width="7" height="12" viewBox="0 0 8.89 13.39" fill="none">
+              <path d="M0.357301 13.071C-0.118783 12.6716 -0.119157 11.9393 0.356519 11.5394L6.11962 6.69471L0.356558 1.84998C-0.119109 1.45011 -0.11874 0.717811 0.357328 0.318419L0.458081 0.233894C0.829807 -0.0779599 1.37176 -0.0779654 1.7435 0.233881L8.53177 5.92859C9.00817 6.32825 9.00817 7.06117 8.53177 7.46083L1.74348 13.1555C1.37176 13.4674 0.82981 13.4674 0.458084 13.1555L0.357301 13.071Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="acc-items">
+
+            <div class="nav-item sr-item" data-section="screening-room">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="none"><path d="M10 3H6C5.44687 3 5 3.44687 5 4V16C5 16.5531 5.44687 17 6 17H14C14.5531 17 15 16.5531 15 16V8H12C10.8969 8 10 7.10312 10 6V3ZM14.5844 7L11 3.41563V6C11 6.55313 11.4469 7 12 7H14.5844ZM4 4C4 2.89688 4.89688 2 6 2H10.1719C10.7031 2 11.2125 2.20937 11.5875 2.58437L15.4156 6.41563C15.7906 6.79063 16 7.3 16 7.83125V16C16 17.1031 15.1031 18 14 18H6C4.89688 18 4 17.1031 4 16V4Z" fill="currentColor"/></svg>
+              <span>My files</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+            <div class="nav-item sr-item" data-section="screening-room">
+              <svg class="nav-icon" viewBox="0 0 14 14.9984" fill="none"><path d="M7.5 1.70469V10.4984C7.5 10.7734 7.275 10.9984 7 10.9984C6.725 10.9984 6.5 10.7734 6.5 10.4984V1.70469L3.85313 4.35156C3.65938 4.54531 3.34062 4.54531 3.14687 4.35156C2.95312 4.15781 2.95312 3.83906 3.14687 3.64531L6.64688 0.145312C6.84063 -0.0484375 7.15937 -0.0484375 7.35312 0.145312L10.8531 3.64531C11.0469 3.83906 11.0469 4.15781 10.8531 4.35156C10.6594 4.54531 10.3406 4.54531 10.1469 4.35156L7.5 1.70469ZM5 9.99844H2C1.44687 9.99844 1 10.4453 1 10.9984V12.9984C1 13.5516 1.44687 13.9984 2 13.9984H12C12.5531 13.9984 13 13.5516 13 12.9984V10.9984C13 10.4453 12.5531 9.99844 12 9.99844H9V8.99844H12C13.1031 8.99844 14 9.89531 14 10.9984V12.9984C14 14.1016 13.1031 14.9984 12 14.9984H2C0.896875 14.9984 0 14.1016 0 12.9984V10.9984C0 9.89531 0.896875 8.99844 2 8.99844H5V9.99844ZM10 11.9984C10 11.5828 10.3344 11.2484 10.75 11.2484C11.1656 11.2484 11.5 11.5828 11.5 11.9984C11.5 12.4141 11.1656 12.7484 10.75 12.7484C10.3344 12.7484 10 12.4141 10 11.9984Z" fill="currentColor"/></svg>
+              <span>Upload file</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+            <div class="nav-item sr-item" data-section="screening-room">
+              <svg class="nav-icon" viewBox="0 0 12 16" fill="none"><path d="M4.25 2.5H7.75C8.16563 2.5 8.5 2.16563 8.5 1.75C8.5 1.33437 8.16563 1 7.75 1H4.25C3.83437 1 3.5 1.33437 3.5 1.75C3.5 2.16563 3.83437 2.5 4.25 2.5ZM4.25 3.5C3.36875 3.5 2.6375 2.84688 2.51875 2H2C1.44687 2 1 2.44687 1 3V14C1 14.5531 1.44687 15 2 15H10C10.5531 15 11 14.5531 11 14V3C11 2.44687 10.5531 2 10 2H9.48125C9.35937 2.84688 8.63125 3.5 7.75 3.5H4.25ZM7.75 0C8.44687 0 9.05 0.409375 9.33125 1H10C11.1031 1 12 1.89688 12 3V14C12 15.1031 11.1031 16 10 16H2C0.896875 16 0 15.1031 0 14V3C0 1.89688 0.896875 1 2 1H2.66875C2.95 0.409375 3.55313 0 4.25 0H7.75ZM7 8.5C7 7.94687 6.55313 7.5 6 7.5C5.44687 7.5 5 7.94687 5 8.5C5 9.05313 5.44687 9.5 6 9.5C6.55313 9.5 7 9.05313 7 8.5ZM4 8.5C4 7.39688 4.89688 6.5 6 6.5C7.10312 6.5 8 7.39688 8 8.5C8 9.60312 7.10312 10.5 6 10.5C4.89688 10.5 4 9.60312 4 8.5ZM3.20625 13.5C2.86875 13.5 2.6125 13.1844 2.7625 12.8813C3.17187 12.0625 4.01875 11.5 5 11.5H7C7.97812 11.5 8.825 12.0625 9.2375 12.8813C9.39063 13.1844 9.13437 13.5 8.79375 13.5C8.56562 13.5 8.37187 13.35 8.24375 13.1625C7.975 12.7625 7.51875 12.5 7 12.5H5C4.48125 12.5 4.025 12.7625 3.75625 13.1625C3.62812 13.35 3.43438 13.5 3.20625 13.5Z" fill="currentColor"/></svg>
+              <span>Account profile</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+            <div class="nav-item sr-item" data-section="screening-room">
+              <svg class="nav-icon" viewBox="0 0 20 20" fill="none"><path d="M2 5.82812V5.75H2.00312C2.04062 4.77812 2.84375 4 3.82812 4H16.1719C17.1562 4 17.9563 4.77812 17.9969 5.75H18V14C18 15.1031 17.1031 16 16 16H4C2.89688 16 2 15.1031 2 14V5.82812ZM17 7.4875L11.4781 11.5344C10.5969 12.1781 9.4 12.1781 8.52188 11.5344L3 7.4875V14C3 14.5531 3.44687 15 4 15H16C16.5531 15 17 14.5531 17 14V7.4875ZM17 5.82812C17 5.37187 16.6281 5 16.1719 5H3.82812C3.37187 5 3 5.37187 3 5.82812C3 6.09062 3.125 6.34062 3.3375 6.49687L9.1125 10.7281C9.64063 11.1156 10.3594 11.1156 10.8875 10.7281L16.6625 6.49375C16.875 6.3375 17 6.09062 17 5.825V5.82812Z" fill="currentColor"/></svg>
+              <span>Notifications</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+            <div class="nav-item sr-item" data-section="screening-room">
+              <svg class="nav-icon" viewBox="0 0 12 16" fill="none"><path d="M6 1H2C1.44687 1 1 1.44687 1 2V14C1 14.5531 1.44687 15 2 15H10C10.5531 15 11 14.5531 11 14V6H8C6.89688 6 6 5.10312 6 4V1ZM10.5844 5L7 1.41563V4C7 4.55313 7.44687 5 8 5H10.5844ZM0 2C0 0.896875 0.896875 0 2 0H6.17188C6.70312 0 7.2125 0.209375 7.5875 0.584375L11.4156 4.41563C11.7906 4.79063 12 5.3 12 5.83125V14C12 15.1031 11.1031 16 10 16H2C0.896875 16 0 15.1031 0 14V2Z" fill="currentColor"/></svg>
+              <span>Statistics</span>
+              <svg class="item-chevron" width="6" height="10" viewBox="0 0 6.8801 11.3654" fill="none"><path d="M0.280074 11.1326C-0.0930948 10.787 -0.0933998 10.1969 0.279411 9.85086L4.77015 5.68269L0.279431 1.5145C-0.093366 1.16847 -0.0930665 0.578438 0.280083 0.232795C0.615172 -0.0775938 1.13276 -0.0775987 1.46785 0.232783L6.55964 4.94905C6.98693 5.34482 6.98692 6.02056 6.55964 6.41633L1.46785 11.1326C1.13276 11.443 0.615169 11.443 0.280074 11.1326Z" fill="currentColor"/></svg>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ── Collapsed sections ── -->
+        <div class="accordion-section">
+          <div class="acc-header collapsed-only">
+            <span class="acc-title">
+              Schedules
+              <a href="https://clipsource.com/?gad_source=1&gad_campaignid=19393620648&gbraid=0AAAAADBw0u-tdat1LCQ9C3eCldKlBd64u&gclid=EAIaIQobChMIgPXr3YjekwMVrkKRBR07qACNEAAYASAAEgKkHfD_BwE" target="_blank" rel="noopener noreferrer" class="pressroom-link" title="Pressroom" style="margin-left: 4px; padding: 2px 4px; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; color: #666;">
+                <svg class="nav-icon" viewBox="0 0 640 640" fill="none" style="width: 18px; height: 18px; display: block;"><path d="M368 64C359.2 64 352 71.2 352 80C352 88.8 359.2 96 368 96L521.4 96L260.7 356.7C254.5 362.9 254.5 373.1 260.7 379.3C266.9 385.5 277.1 385.5 283.3 379.3L544 118.6L544 272C544 280.8 551.2 288 560 288C568.8 288 576 280.8 576 272L576 80C576 71.2 568.8 64 560 64L368 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 400C480 391.2 472.8 384 464 384C455.2 384 448 391.2 448 400L448 496C448 522.5 426.5 544 400 544L144 544C117.5 544 96 522.5 96 496L96 240C96 213.5 117.5 192 144 192L240 192C248.8 192 256 184.8 256 176C256 167.2 248.8 160 240 160L144 160z" fill="currentColor"/></svg>
+              </a>
+            </span>
+            <svg class="acc-chevron" width="7" height="12" viewBox="0 0 8.89 13.39" fill="none">
+              <path d="M0.357301 13.071C-0.118783 12.6716 -0.119157 11.9393 0.356519 11.5394L6.11962 6.69471L0.356558 1.84998C-0.119109 1.45011 -0.11874 0.717811 0.357328 0.318419L0.458081 0.233894C0.829807 -0.0779599 1.37176 -0.0779654 1.7435 0.233881L8.53177 5.92859C9.00817 6.32825 9.00817 7.06117 8.53177 7.46083L1.74348 13.1555C1.37176 13.4674 0.82981 13.4674 0.458084 13.1555L0.357301 13.071Z" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="accordion-section">
+          <div class="acc-header collapsed-only">
+            <span class="acc-title">
+              Mediabank
+              <a href="https://clipsource.com/?gad_source=1&gad_campaignid=19393620648&gbraid=0AAAAADBw0u-tdat1LCQ9C3eCldKlBd64u&gclid=EAIaIQobChMIgPXr3YjekwMVrkKRBR07qACNEAAYASAAEgKkHfD_BwE" target="_blank" rel="noopener noreferrer" class="pressroom-link" title="Pressroom" style="margin-left: 4px; padding: 2px 4px; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; color: #666;">
+                <svg class="nav-icon" viewBox="0 0 640 640" fill="none" style="width: 18px; height: 18px; display: block;"><path d="M368 64C359.2 64 352 71.2 352 80C352 88.8 359.2 96 368 96L521.4 96L260.7 356.7C254.5 362.9 254.5 373.1 260.7 379.3C266.9 385.5 277.1 385.5 283.3 379.3L544 118.6L544 272C544 280.8 551.2 288 560 288C568.8 288 576 280.8 576 272L576 80C576 71.2 568.8 64 560 64L368 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 400C480 391.2 472.8 384 464 384C455.2 384 448 391.2 448 400L448 496C448 522.5 426.5 544 400 544L144 544C117.5 544 96 522.5 96 496L96 240C96 213.5 117.5 192 144 192L240 192C248.8 192 256 184.8 256 176C256 167.2 248.8 160 240 160L144 160z" fill="currentColor"/></svg>
+              </a>
+            </span>
+            <svg class="acc-chevron" width="7" height="12" viewBox="0 0 8.89 13.39" fill="none">
+              <path d="M0.357301 13.071C-0.118783 12.6716 -0.119157 11.9393 0.356519 11.5394L6.11962 6.69471L0.356558 1.84998C-0.119109 1.45011 -0.11874 0.717811 0.357328 0.318419L0.458081 0.233894C0.829807 -0.0779599 1.37176 -0.0779654 1.7435 0.233881L8.53177 5.92859C9.00817 6.32825 9.00817 7.06117 8.53177 7.46083L1.74348 13.1555C1.37176 13.4674 0.82981 13.4674 0.458084 13.1555L0.357301 13.071Z" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="accordion-section">
+          <div class="acc-header collapsed-only">
+            <span class="acc-title">
+              Website
+              <a href="https://clipsource.com/?gad_source=1&gad_campaignid=19393620648&gbraid=0AAAAADBw0u-tdat1LCQ9C3eCldKlBd64u&gclid=EAIaIQobChMIgPXr3YjekwMVrkKRBR07qACNEAAYASAAEgKkHfD_BwE" target="_blank" rel="noopener noreferrer" class="pressroom-link" title="Pressroom" style="margin-left: 4px; padding: 2px 4px; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; color: #666;">
+                <svg class="nav-icon" viewBox="0 0 640 640" fill="none" style="width: 18px; height: 18px; display: block;"><path d="M368 64C359.2 64 352 71.2 352 80C352 88.8 359.2 96 368 96L521.4 96L260.7 356.7C254.5 362.9 254.5 373.1 260.7 379.3C266.9 385.5 277.1 385.5 283.3 379.3L544 118.6L544 272C544 280.8 551.2 288 560 288C568.8 288 576 280.8 576 272L576 80C576 71.2 568.8 64 560 64L368 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 400C480 391.2 472.8 384 464 384C455.2 384 448 391.2 448 400L448 496C448 522.5 426.5 544 400 544L144 544C117.5 544 96 522.5 96 496L96 240C96 213.5 117.5 192 144 192L240 192C248.8 192 256 184.8 256 176C256 167.2 248.8 160 240 160L144 160z" fill="currentColor"/></svg>
+              </a>
+            </span>
+            <svg class="acc-chevron" width="7" height="12" viewBox="0 0 8.89 13.39" fill="none">
+              <path d="M0.357301 13.071C-0.118783 12.6716 -0.119157 11.9393 0.356519 11.5394L6.11962 6.69471L0.356558 1.84998C-0.119109 1.45011 -0.11874 0.717811 0.357328 0.318419L0.458081 0.233894C0.829807 -0.0779599 1.37176 -0.0779654 1.7435 0.233881L8.53177 5.92859C9.00817 6.32825 9.00817 7.06117 8.53177 7.46083L1.74348 13.1555C1.37176 13.4674 0.82981 13.4674 0.458084 13.1555L0.357301 13.071Z" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- ── Main Content: New Post Form ─────────────────── -->
+      <main class="main-content cp-form-view">
+
+        <!-- Step Tabs -->
+        <div class="cp-step-tabs" id="cpStepTabs">
+          <button class="cp-back-btn" type="button" onclick="window.location.href='medicenter.html'" aria-label="Back to posts">
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.5 16L7 10L12.5 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="cp-tabs-group">
+            <button class="cp-step-tab active" data-step="1">1. Post</button>
+            <button class="cp-step-tab" data-step="2">2. Access</button>
+            <button class="cp-step-tab" data-step="3">3. Publish</button>
+            <div class="cp-tabs-line"></div>
+          </div>
+        </div>
+
+        <!-- ── Step 1: Post ── -->
+        <div class="cp-step-panel active" data-panel="1">
+
+          <div class="cp-field">
+            <label class="cp-label">Title</label>
+            <input type="text" class="cp-title-input" id="cpTitle" />
+          </div>
+
+          <div class="cp-field">
+            <label class="cp-label">Preamble</label>
+            <div class="rich-editor">
+              <textarea class="rich-area" id="cpPreamble" style="height:70px" placeholder=""></textarea>
+            </div>
+          </div>
+
+          <div class="cp-field">
+            <label class="cp-label">Body text</label>
+            <div class="rich-editor">
+              <button type="button" class="btn-add-content">
+                Add content
+                <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M0 0.5L4 5L8 0.5" stroke="currentColor" stroke-width="1.2"/></svg>
+              </button>
+              <textarea class="rich-area" id="cpBody" style="height:130px" placeholder=""></textarea>
+            </div>
+          </div>
+
+          <div class="cp-field">
+            <label class="cp-label">Boilerplate</label>
+            <div class="rich-editor">
+              <textarea class="rich-area" id="cpBoilerplate" style="height:80px" placeholder=""></textarea>
+            </div>
+          </div>
+
+          <div class="cp-field">
+            <label class="cp-label">Category</label>
+            <div id="cpCategoryDropdown" class="dropdown status-dropdown" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+              <span id="cpCategoryLabel">Highlights</span>
+              <svg class="status-chevron" width="6" height="8" viewBox="0 0 5.02 7.65" fill="none" aria-hidden="true"><path d="M0.233189 7.51682C-0.0775287 7.26857 -0.0777675 6.79621 0.2327 6.54764L3.63181 3.82627L0.232712 1.10488C-0.0777437 0.856326 -0.0775091 0.38398 0.233194 0.135731C0.459697 -0.0452411 0.781327 -0.0452441 1.00783 0.135724L4.64919 3.045C5.15026 3.44534 5.15026 4.2072 4.64919 4.60754L1.00783 7.51682C0.781325 7.69779 0.459696 7.69779 0.233189 7.51682Z" fill="#979797"/></svg>
+              <div id="cpCategoryMenu" class="status-menu" role="listbox" aria-label="Select category">
+                <button class="status-option active" type="button" data-category="highlights">Highlights</button>
+                <button class="status-option" type="button" data-category="scheduled">Press release</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cp-field">
+            <label class="cp-label">Contact cards</label>
+            <div class="cp-checks">
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" checked /> Martin Lind&eacute;n</label>
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Johan Wiklund</label>
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Maria Campo</label>
+            </div>
+          </div>
+
+          <div class="cp-field cp-field-tags">
+            <label class="cp-label">Tags</label>
+            <div class="tag-row">
+              <div class="tag-search-group">
+                <div class="tag-search-wrap">
+                  <input type="text" id="tagInput" class="tag-search-input" placeholder="Search tags..." />
+                  <button type="button" id="addTagBtn" class="tag-search-btn">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M11.625 10.5H11.0325L10.8225 10.2975C11.5575 9.4425 12 8.3325 12 7.125C12 4.4325 9.8175 2.25 7.125 2.25C4.4325 2.25 2.25 4.4325 2.25 7.125C2.25 9.8175 4.4325 12 7.125 12C8.3325 12 9.4425 11.5575 10.2975 10.8225L10.5 11.0325V11.625L14.25 15.3675L15.3675 14.25L11.625 10.5ZM7.125 10.5C5.2575 10.5 3.75 8.9925 3.75 7.125C3.75 5.2575 5.2575 3.75 7.125 3.75C8.9925 3.75 10.5 5.2575 10.5 7.125C10.5 8.9925 8.9925 10.5 7.125 10.5Z" fill="white"/>
+                    </svg>
+                  </button>
+                </div>
+                <span class="manage-tags-link">Manage tags</span>
+              </div>
+              <div class="tag-banner" id="tagBanner">
+                <p>Tags connect related posts, screeners, programs, and images in one unified flow, <a class="tag-banner-link" href="https://clipsource.com/blog/product-update-tags-youre-it" target="_blank" rel="noopener noreferrer">explore</a></p>
+                <button type="button" id="closeBannerBtn" class="tag-banner-close">
+                  <svg width="9" height="9" viewBox="0 0 8.56569 8.56569" fill="none">
+                    <path d="M8.28284 8.28284L0.282843 0.282843M8.28284 0.282843L0.282843 8.28284" stroke="#7B610B" stroke-width="0.8"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div id="tagPills" class="tag-pills"></div>
+          </div>
+
+          <div class="cp-field">
+            <label class="cp-label">Display</label>
+            <div class="cp-checks">
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Highlight</label>
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Website</label>
+            </div>
+            <div class="cp-highlight-settings">
+              <p class="cp-highlight-title">Keep post highlighted for</p>
+              <div class="cp-highlight-controls">
+                <div id="cpHighlightSelectDropdown" class="cp-dropdown cp-highlight-select" role="button" tabindex="0" aria-haspopup="listbox" aria-label="Highlight duration">
+                  <span id="cpHighlightSelectLabel">1 month</span>
+                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" aria-hidden="true"><path d="M0 0.5L4 5L8 0.5" stroke="#979797" stroke-width="1.2"/></svg>
+                  <div id="cpHighlightSelectMenu" class="cp-highlight-select-menu" style="display: none;">
+                    <button type="button" class="cp-highlight-menu-option" data-days="7">1 Week</button>
+                    <button type="button" class="cp-highlight-menu-option" data-days="14">2 Weeks</button>
+                    <button type="button" class="cp-highlight-menu-option active" data-days="30">1 Month</button>
+                  </div>
+                </div>
+                <button type="button" class="cp-highlight-date-btn" aria-label="Choose date">
+                  <span id="highlightDateLabel">Choose date</span>
+                  <svg width="7" height="11" viewBox="0 0 7 11" fill="none" aria-hidden="true"><path d="M1 1L5.5 5.5L1 10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cp-field">
+            <label class="cp-label">Related media</label>
+            <button type="button" class="btn-cp btn-cp-cyan" id="addMediaBtn">+ Add media</button>
+            <input type="file" id="mediaFileInput" accept="image/*" multiple style="display:none" />
+          </div>
+          <div class="cp-media-thumbs" id="mediaThumbsStep1"></div>
+
+          <div class="cp-actions">
+            <button type="button" class="btn-cp btn-cp-cyan">Save</button>
+            <button type="button" class="btn-cp btn-cp-cyan" data-next="2">Save and Continue</button>
+            <button type="button" class="btn-cp btn-cp-muted">Preview</button>
+          </div>
+        </div>
+
+        <!-- ── Step 2: Access ── -->
+        <div class="cp-step-panel" data-panel="2">
+
+          <div class="cp-field">
+            <label class="cp-label">Visible</label>
+            <div class="cp-checks">
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Public</label>
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> All logged in contacts</label>
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" id="chkGroups" /> Groups</label>
+            </div>
+
+            <!-- Groups picker panel -->
+            <div class="cp-groups-panel" id="cpGroupsPanel">
+              <div class="cp-groups-section">
+                <p class="cp-groups-section-title">Media Center</p>
+                <div class="cp-groups-grid" id="cpGroupsGridMC">
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> National Newspapers</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Local Newspapers</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Public Media Channels</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Commercial TV Networks</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Radio Broadcasters</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Digital Newsrooms</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Wire Service Editors</label>
+                </div>
+              </div>
+              <div class="cp-groups-section">
+                <p class="cp-groups-section-title">Screening Room – CS Screeners</p>
+                <div class="cp-groups-grid">
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> News Desk Screeners</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Content Review Team</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Editorial QA Screeners</label>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:12px">
+              <button type="button" class="btn-cp btn-cp-outlined cp-add-contact-btn">+ Add contact</button>
+            </div>
+            <div id="cpContactAddPanel" class="cp-contact-add-panel" aria-live="polite">
+              <div class="cp-contact-add-row">
+                <div class="cp-contact-input-wrap">
+                  <input type="email" id="cpContactEmailInput" class="cp-contact-email-input" placeholder="Enter email address" />
+                  <p id="cpContactEmailError" class="cp-contact-email-error" aria-live="polite"></p>
+                </div>
+                <button type="button" id="cpConfirmAddContactBtn" class="btn-cp btn-cp-cyan cp-contact-confirm-btn">Add</button>
+              </div>
+              <div id="cpContactPills" class="cp-contact-pills"></div>
+            </div>
+          </div>
+
+          <div class="cp-field">
+            <label class="cp-label">Notifications</label>
+            <div class="cp-dropdown" style="width:200px;margin-bottom:12px">
+              <span class="cp-dropdown-placeholder">Team</span>
+              <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M0 0.5L4 5L8 0.5" stroke="#979797" stroke-width="1.2"/></svg>
+            </div>
+            <div class="cp-checks">
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Don&apos;t send notifications</label>
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" id="chkNotifAllContacts" /> Notifications to all contacts</label>
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" id="chkNotifGroups" /> Chosen group</label>
+            </div>
+
+            <div class="cp-notif-meta" id="cpNotifMeta">
+              <label class="cp-label" for="cpNotifSubject" style="margin-bottom:6px">Notification subject</label>
+              <input id="cpNotifSubject" type="text" class="cp-title-input" style="max-width:100%;margin-bottom:12px" />
+
+              <label class="cp-label" style="margin-bottom:6px">Reply-to</label>
+              <div class="cp-dropdown" style="width:100%;max-width:100%;margin-bottom:12px">
+                <span>notifications@clipsource.com</span>
+                <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M0 0.5L4 5L8 0.5" stroke="#979797" stroke-width="1.2"/></svg>
+              </div>
+            </div>
+
+            <div id="cpNotifContactsPanel" class="cp-notif-contacts-panel">
+              <p class="cp-groups-section-title">Added contacts</p>
+              <div id="cpNotifContactsList" class="cp-checks"></div>
+            </div>
+
+            <div class="cp-groups-panel" id="cpNotifGroupsPanel">
+              <div class="cp-groups-section">
+                <p class="cp-groups-section-title">Media Center</p>
+                <div class="cp-groups-grid">
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> National Newspapers</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Local Newspapers</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Public Media Channels</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Commercial TV Networks</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Radio Broadcasters</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Digital Newsrooms</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Wire Service Editors</label>
+                </div>
+              </div>
+              <div class="cp-groups-section">
+                <p class="cp-groups-section-title">Screening Room – CS Screeners</p>
+                <div class="cp-groups-grid">
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> News Desk Screeners</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Content Review Team</label>
+                  <label class="cp-check-label"><input type="checkbox" class="cp-chk" /> Editorial QA Screeners</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cp-actions">
+            <button type="button" class="btn-cp btn-cp-cyan">Save</button>
+            <button type="button" class="btn-cp btn-cp-cyan" data-next="3">Save and Continue</button>
+            <button type="button" class="btn-cp btn-cp-muted">Preview</button>
+          </div>
+        </div>
+
+        <!-- ── Step 3: Publish ── -->
+        <div class="cp-step-panel" data-panel="3">
+
+          <div class="cp-preview-area">
+            <p class="cp-preview-title" id="previewTitle"></p>
+            <p class="cp-preview-body" id="previewBody"></p>
+            <div class="cp-media-thumbs" id="mediaThumbsStep3"></div>
+          </div>
+
+          <div class="cp-field">
+            <label class="cp-label">Unpublish</label>
+            <div class="cp-unpublish-row">
+              <label class="cp-check-label"><input type="checkbox" class="cp-chk" id="neverUnpublish" /> Never</label>
+              <div class="cp-dropdown cp-date-picker" id="datePickerDropdown" style="width:200px">
+                <span id="unpublishDateLabel" class="cp-dropdown-placeholder">Choose date</span>
+                <svg width="8" height="6" viewBox="0 0 8 6" fill="none"><path d="M0 0.5L4 5L8 0.5" stroke="#979797" stroke-width="1.2"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="cp-actions">
+            <button type="button" class="btn-cp btn-cp-cyan">Publish</button>
+            <button type="button" class="btn-cp btn-cp-cyan" id="scheduleBtn">Schedule</button>
+            <button type="button" class="btn-cp btn-cp-muted">Preview</button>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Schedule Modal for Press Release (schedule category) -->
+      <div id="scheduleModal" class="schedule-modal" style="display: none;">
+        <div class="schedule-modal-content">
+          <div class="schedule-modal-header">
+            <h3>Schedule Post</h3>
+            <button id="scheduleModalClose" class="schedule-modal-close">&times;</button>
+          </div>
+          <div class="schedule-modal-body">
+            <label for="scheduleDateInput">Date & Time:</label>
+            <input type="datetime-local" id="scheduleDateInput" />
+          </div>
+          <div class="schedule-modal-footer">
+            <button id="scheduleCancelBtn" class="btn-cp btn-cp-muted">Cancel</button>
+            <button id="scheduleConfirmBtn" class="btn-cp btn-cp-cyan">Schedule</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Highlight Date Picker Modal -->
+      <div id="highlightDateModal" class="schedule-modal" style="display: none;">
+        <div class="schedule-modal-content">
+          <div class="schedule-modal-header">
+            <h3 id="highlightDateModalTitle">Choose Highlight End Date</h3>
+            <button id="highlightDateModalClose" class="schedule-modal-close">&times;</button>
+          </div>
+          <div class="schedule-modal-body">
+            <label id="highlightDateInputLabel" for="highlightDateInput">Date & Time:</label>
+            <input type="datetime-local" id="highlightDateInput" />
+          </div>
+          <div class="schedule-modal-footer">
+            <button id="highlightDateCancelBtn" class="btn-cp btn-cp-muted">Cancel</button>
+            <button id="highlightDateConfirmBtn" class="btn-cp btn-cp-cyan">Confirm</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paste Formatting Modal -->
+      <div id="pasteFormattingModal" class="paste-formatting-modal" style="display: none;">
+        <div class="paste-formatting-modal-content">
+          <div class="paste-formatting-modal-header">
+            <h3>Paste formatting options</h3>
+            <p class="paste-formatting-modal-subtitle">Choose to keep or remove formatting in the pasted content</p>
+          </div>
+          <div class="paste-formatting-modal-footer">
+            <button id="pasteRemoveBtn" class="btn-cp btn-cp-muted">Remove</button>
+            <button id="pasteKeepBtn" class="btn-cp btn-cp-cyan">Keep</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="help-btn" id="helpBtn">
+      <svg class="help-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M9.6 9.3a2.7 2.7 0 1 1 4.8 1.7c-.9 1-1.9 1.5-1.9 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="12" cy="17.2" r="1.2" fill="currentColor"/>
+      </svg>
+      <span>Help</span>
+    </button>
+
+    <footer id="pageFooter" class="page-footer">
+      <div class="gradient-bar"></div>
+      <div class="footer-dark">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <span class="footer-col-head">The Company</span>
+            <a href="#">About Clipsource</a>
+            <a href="#">News</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-head">The Services</span>
+            <a href="#">TV &amp; VOD</a>
+            <a href="#">Publishing</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-head">Help and Support</span>
+            <a href="#">Help Center</a>
+            <a href="#">Contact support</a>
+            <a href="#">Server status</a>
+          </div>
+        </div>
+        <div class="footer-social">
+          <div class="social-btn">
+            <svg viewBox="0 0 50 50" aria-hidden="true">
+              <path d="M13 13L30.5 36H38L21 13H13Z" fill="currentColor"/>
+              <path d="M31.5 33.5L17.5 15.5H20L33.5 33.5H31.5Z" fill="#c8c8c8"/>
+              <path d="M28.5 22.5L36.5 13H32.5L26.5 20L28.5 22.5ZM13.5 36L22 26L24 28.5L17.5 36H13.5Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="social-btn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M6.94 8.5H4V20h2.94zM5.47 7.2a1.7 1.7 0 1 0 0-3.4 1.7 1.7 0 0 0 0 3.4zM20 20h-2.93v-5.6c0-1.34-.03-3.06-1.86-3.06-1.86 0-2.15 1.45-2.15 2.96V20H10.1V8.5h2.81v1.57h.04c.39-.74 1.35-1.52 2.79-1.52 2.98 0 3.53 1.96 3.53 4.51V20z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div id="cpToast" class="cp-toast" aria-live="polite"></div>
+  <script src="accessibility.js"></script>
+  <script src="help-overlay.js"></script>
+  <script src="screeningroom.js"></script>
+  <script src="createpost.js"></script>
+  <script src="search.js"></script>
+</body>
+</html>

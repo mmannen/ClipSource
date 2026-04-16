@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="screeningroom.css" />
+  <link rel="stylesheet" href="search.css" />
+  <link rel="stylesheet" href="help-overlay.css" />
+</head>
+<body>
+  <div class="dashboard-wrapper">
+
+    <!-- ── Top Nav ─────────────────────────────────────── -->
+    <header class="top-nav">
+      <div class="nav-logo">
+        <img src="assets/clipsource-logo.png" alt="ClipSource" class="nav-logo-img" />
+      </div>
+      <nav class="nav-links">
+        <span onclick="goToContacts()">CONTACTS</span>
+        <span>TAGS</span>
+        <span style="margin-left: auto;">SEARCH</span>
+        <span onclick="goToSettings()">SETTINGS</span>
+        <span onclick="logout()">LOG OUT</span>
+      </nav>
+    </header>
+
+    <div class="main-container">
+      <!-- ── Main Content ─────────────────────────────────── -->
+      <main class="main-content">
+        <div class="content-wrapper">
+          <h1>Contacts</h1>
+          <p>Contacts management interface will be implemented here.</p>
+        </div>
+      </main>
+    </div>
+
+  </div>
+
+  <script src="screeningroom.js"></script>
+</body>
+</html>

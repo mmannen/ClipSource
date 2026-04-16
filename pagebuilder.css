@@ -1,0 +1,533 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #f8f9fa;
+  color: #333;
+}
+
+/* ── Header ─────────────────────────────────────── */
+.pb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid #e8e8e8;
+  height: 56px;
+}
+
+.pb-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.pb-back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.15s ease;
+}
+
+.pb-back-btn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.pb-page-title {
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  background: transparent;
+  color: #333;
+  outline: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: text;
+}
+
+.pb-page-title:hover,
+.pb-page-title:focus {
+  background: #f0f0f0;
+}
+
+.pb-header-right {
+  display: flex;
+  gap: 8px;
+}
+
+.pb-preview-btn,
+.pb-publish-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  color: #333;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pb-preview-btn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+.pb-publish-btn {
+  background: #17a2b8;
+  color: white;
+  border-color: #17a2b8;
+}
+
+.pb-publish-btn:hover {
+  background: #138496;
+  border-color: #138496;
+}
+
+/* ── Steps ───────────────────────────────────────── */
+.pb-steps {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0;
+  margin: 0;
+}
+
+.pb-step {
+  flex: 1;
+  padding: 12px 20px;
+  background: white;
+  border: none;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.pb-step:first-child {
+  border-left: 1px solid #e8e8e8;
+}
+
+.pb-step:not(:last-child) {
+  border-right: 1px solid #e8e8e8;
+}
+
+.pb-step.active {
+  background: #17a2b8;
+  color: white;
+  border-bottom-color: #17a2b8;
+}
+
+/* ── Workspace ──────────────────────────────────── */
+.pb-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f8f9fa;
+}
+
+.pb-workspace {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.pb-canvas-wrapper {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+  background: #f8f9fa;
+}
+
+/* ── Canvas ─────────────────────────────────────── */
+.pb-canvas {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  min-height: 600px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  transition: all 0.2s ease;
+}
+
+.pb-canvas.drag-over {
+  background: #f0f7fb;
+  box-shadow: 0 0 0 2px #17a2b8;
+}
+
+.pb-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #999;
+  gap: 16px;
+}
+
+.pb-empty-state svg {
+  opacity: 0.3;
+}
+
+.pb-empty-state p {
+  font-size: 16px;
+  color: #999;
+}
+
+/* ── Components in Canvas ────────────────────────── */
+.pb-canvas-component {
+  position: relative;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: white;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  cursor: grab;
+  transition: all 0.15s ease;
+  group: 1;
+}
+
+.pb-canvas-component:hover {
+  border-color: #17a2b8;
+  box-shadow: 0 2px 8px rgba(23, 162, 184, 0.1);
+}
+
+.pb-canvas-component.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+}
+
+.pb-canvas-component.drag-target {
+  border: 2px dashed #17a2b8;
+  background: #f0f7fb;
+}
+
+.pb-component-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+}
+
+.pb-component-content {
+  min-height: 24px;
+}
+
+.pb-component-actions {
+  display: none;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  gap: 4px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 4px;
+  z-index: 100;
+}
+
+.pb-canvas-component:hover .pb-component-actions {
+  display: flex;
+}
+
+.pb-component-action-btn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: all 0.1s ease;
+  font-size: 12px;
+}
+
+.pb-component-action-btn:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.pb-component-action-btn.delete:hover {
+  background: #ffe5e5;
+  color: #d32f2f;
+}
+
+/* ── Add Component Button ───────────────────────── */
+.pb-add-component-btn {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background: #17a2b8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
+  transition: all 0.2s ease;
+}
+
+.pb-add-component-btn:hover {
+  background: #138496;
+  box-shadow: 0 6px 16px rgba(23, 162, 184, 0.4);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.pb-add-component-trigger {
+  padding: 8px 16px;
+  background: #17a2b8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 14px;
+}
+
+.pb-add-component-trigger:hover {
+  background: #138496;
+}
+
+/* ── Modal ──────────────────────────────────────── */
+.pb-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+}
+
+.pb-modal.active {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.pb-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.pb-modal-content {
+  background: white;
+  border-radius: 8px;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  width: 100%;
+}
+
+.pb-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e8e8e8;
+  position: sticky;
+  top: 0;
+  background: white;
+}
+
+.pb-modal-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.pb-modal-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: #999;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.1s ease;
+}
+
+.pb-modal-close:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.pb-modal-body {
+  padding: 24px;
+}
+
+/* ── Component Sections ─────────────────────────── */
+.pb-component-section {
+  margin-bottom: 32px;
+}
+
+.pb-component-section:last-child {
+  margin-bottom: 0;
+}
+
+.pb-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #17a2b8;
+  display: inline-block;
+}
+
+.pb-component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+/* ── Component Items ────────────────────────────── */
+.pb-component-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 12px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: grab;
+  transition: all 0.15s ease;
+  color: #666;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  user-select: none;
+  min-height: 100px;
+}
+
+.pb-component-item:hover {
+  background: #ececec;
+  border-color: #17a2b8;
+  color: #17a2b8;
+}
+
+.pb-component-item svg {
+  width: 32px;
+  height: 32px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.pb-component-item.dragging {
+  cursor: grabbing;
+  opacity: 0.6;
+}
+
+/* ── Inline editing ─────────────────────────────── */
+.pb-editable {
+  cursor: text;
+  padding: 4px 8px;
+  border-radius: 3px;
+  transition: all 0.1s ease;
+}
+
+.pb-editable:hover {
+  background: rgba(23, 162, 184, 0.1);
+}
+
+.pb-editable-input {
+  width: 100%;
+  border: 1px solid #17a2b8;
+  border-radius: 3px;
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ── Scrollbar styling ───────────────────────── */
+.pb-modal-content::-webkit-scrollbar,
+.pb-canvas-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pb-modal-content::-webkit-scrollbar-track,
+.pb-canvas-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pb-modal-content::-webkit-scrollbar-thumb,
+.pb-canvas-wrapper::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.pb-modal-content::-webkit-scrollbar-thumb:hover,
+.pb-canvas-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .pb-canvas {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .pb-component-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .pb-header {
+    flex-direction: column;
+    gap: 12px;
+    height: auto;
+    padding: 12px;
+  }
+
+  .pb-header-left,
+  .pb-header-right {
+    width: 100%;
+  }
+
+  .pb-header-right {
+    justify-content: flex-end;
+  }
+}
