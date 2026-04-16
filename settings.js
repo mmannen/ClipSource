@@ -4,13 +4,13 @@ function logout() {
 }
 
 function goToHome() {
-  window.location.href = 'screeningroom.html';
+  window.location.href = 'medicenter.html';
 }
 
 function goToContacts() {
-  // Navigate to screeningroom to show contacts panel
+  // Navigate to medicenter to show contacts panel
   sessionStorage.setItem('showContactsPanelOnLoad', 'true');
-  window.location.href = "screeningroom.html";
+  window.location.href = "medicenter.html";
 }
 
 function goToTags() {

@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const itemLabel = item.dataset.label;
         sessionStorage.setItem('sr_target_section', section);
         sessionStorage.setItem('sr_target_item', itemLabel);
-        window.location.href = 'screeningroom.html';
+        window.location.href = 'medicenter.html';
       });
     });
 

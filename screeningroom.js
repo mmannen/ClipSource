@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (navLogo) {
     navLogo.style.cursor = 'pointer';
     navLogo.addEventListener('click', () => {
-      window.location.href = 'screeningroom.html';
+      window.location.href = 'medicenter.html';
     });
   }
 

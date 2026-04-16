@@ -65,6 +65,19 @@
         'How do I schedule publishing?': 'In step 2, select "Schedule" and choose your preferred publish date and time. The post will automatically be published at that time.'
       }
     },
+    'contacts.html': {
+      title: 'Tips for Contacts',
+      steps: [
+        'Browse and manage contacts from the contacts list.',
+        'Use search and filters to find contacts quickly.',
+        'Edit contact information or manage groups from the menu.'
+      ],
+      suggestions: {
+        'How do I add a new contact?': 'Click the "Add Contact" button to create a new contact. Fill in the name, email, and other details, then click "Save".',
+        'How do I search for contacts?': 'Use the search bar at the top to find contacts by name, email, or organization. You can also filter by contact type or group.',
+        'How do I manage contact groups?': 'Open the contact group menu to organize contacts into custom groups. You can add, edit, or remove contacts from groups as needed.'
+      }
+    },
     'settings.html': {
       title: 'Tips for Settings',
       steps: [
@@ -88,7 +101,7 @@
 
   function pageName() {
     const path = window.location.pathname || '';
-    return path.split('/').pop() || 'screeningroom.html';
+    return path.split('/').pop() || 'medicenter.html';
   }
 
   function contentForPage() {
