@@ -113,7 +113,7 @@ helpBtn.addEventListener('click', () => showToast('Need help? contact support.')
 if (logoWrap) {
   logoWrap.style.cursor = 'pointer';
   logoWrap.addEventListener('click', () => {
-    window.location.href = 'screeningroom.html';
+    window.location.href = 'medicenter.html';
   });
 }
 

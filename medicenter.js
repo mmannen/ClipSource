@@ -63,13 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Navigate to screeningroom for Pages
         if (itemLabel === 'Pages') {
           sessionStorage.setItem('showPagesOnLoad', 'true');
-          window.location.href = 'screeningroom.html';
+          window.location.href = 'medicenter.html';
           return;
         }
         
         sessionStorage.setItem('sr_target_section', section);
         sessionStorage.setItem('sr_target_item', itemLabel);
-        window.location.href = 'screeningroom.html';
+        window.location.href = 'medicenter.html';
       });
     });
 

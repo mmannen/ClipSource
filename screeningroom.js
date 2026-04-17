@@ -200,15 +200,23 @@ function setupCreatePostStyleSidebar() {
         const section = item.dataset.section;
         const itemLabel = item.dataset.label;
 
+        // Follow the same logic as handleNavItemClick for collapsed sections
         if (itemLabel === 'Pages') {
-          sessionStorage.setItem('showPagesOnLoad', 'true');
-          window.location.href = 'screeningroom.html';
+          document.querySelectorAll(".nav-item").forEach((i) => i.classList.remove("active"));
+          item.classList.add("active");
+          selectedSR = null;
+          showUnderConstructionView(itemLabel);
           return;
         }
 
-        sessionStorage.setItem('sr_target_section', section);
-        sessionStorage.setItem('sr_target_item', itemLabel);
-        window.location.href = 'screeningroom.html';
+        // If already active, do nothing
+        if (item.classList.contains("active")) return;
+
+        // Activate item and show under-construction for all other items
+        document.querySelectorAll(".nav-item").forEach((i) => i.classList.remove("active"));
+        item.classList.add("active");
+        selectedSR = null;
+        showUnderConstructionView(itemLabel);
       });
     });
 
@@ -1384,7 +1392,7 @@ function goToContacts() {
   } else {
     // Navigate to screeningroom to show contacts panel
     sessionStorage.setItem('showContactsPanelOnLoad', 'true');
-    window.location.href = 'screeningroom.html';
+    window.location.href = 'medicenter.html';
   }
 }
 
